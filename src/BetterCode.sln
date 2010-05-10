@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterCode.Tools", "BetterCode.Tools\BetterCode.Tools.csproj", "{BEAFFE56-FA8E-4BB3-99DC-607F26B79048}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "docx2UnitTest.Setup", "docx2UnitTest.Setup\docx2UnitTest.Setup.vdproj", "{B07494AE-B8B8-401B-8CAE-429DA83F1A5F}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Docx2UnitTest.Setup", "Docx2UnitTest.Setup\docx2UnitTest.Setup.vdproj", "{B07494AE-B8B8-401B-8CAE-429DA83F1A5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

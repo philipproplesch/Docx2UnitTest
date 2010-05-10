@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -19,14 +18,14 @@ namespace BetterCode.Tools
             var projectItem = GetService(typeof (ProjectItem)) as ProjectItem;
             if (projectItem != null)
             {
-                string projectItemPath = projectItem.get_FileNames(0);
+                string projectItemPath = projectItem.FileNames[0];
                 string fileDestination = Path.GetDirectoryName(inputFileName);
 
                 List<TestClass> testSections = WordDocumentHelper.GetTestSections(projectItemPath);
 
                 foreach (TestClass testSection in testSections)
                 {
-                    string fileName = String.Concat(testSection.ClassName.GetClearName(), ".cs");
+                    string fileName = string.Concat(testSection.ClassName.GetClearName(), ".cs");
                     byte[] classContent = ClassBuilder.CreateClass(testSection);
 
                     projectItem.AddProjectItem(fileDestination, fileName, classContent);
