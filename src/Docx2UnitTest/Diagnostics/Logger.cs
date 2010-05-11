@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Docx2UnitTest.Common
+namespace Docx2UnitTest.Diagnostics
 {
     internal class Logger
     {

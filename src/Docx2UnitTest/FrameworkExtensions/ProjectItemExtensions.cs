@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using Docx2UnitTest.Common;
+using Docx2UnitTest.Diagnostics;
 using EnvDTE;
 
 namespace Docx2UnitTest.FrameworkExtensions

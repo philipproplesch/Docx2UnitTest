@@ -4,7 +4,8 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 using BetterCode.Tools;
-using Docx2UnitTest.Common;
+using Docx2UnitTest.CodeGeneration;
+using Docx2UnitTest.Diagnostics;
 using Docx2UnitTest.FrameworkExtensions;
 using EnvDTE;
 using Microsoft.CustomTool;
@@ -17,39 +18,30 @@ namespace Docx2UnitTest
     {
         protected override byte[] GenerateCode(string inputFileName, string inputFileContent)
         {
+
+            var projectItem = GetService(typeof(ProjectItem)) as ProjectItem;
+
+            if (projectItem == null) return Encoding.UTF8.GetBytes("");
             try
             {
-                var projectItem = GetService(typeof(ProjectItem)) as ProjectItem;
+                var projectItemPath = projectItem.FileNames[0];
+                var fileDestination = Path.GetDirectoryName(inputFileName);
 
-                if (projectItem != null)
+                var testSections = 
+                    OpenXmlParser.GetTestFramework(projectItemPath);
+
+
+
+                foreach (var testClass in testSections.Classes)
                 {
-                    var code = ExistingCodeParser.GetExistingCode(projectItem.ProjectItems);
-
-                    foreach (var file in code.Keys)
-                    {
-                        Logger.Write(file);
-                        var fileContent = code[file];
-                        foreach (var method in fileContent.Keys)
-                        {
-                            Logger.Write(method);
-                            Logger.Write(fileContent[method]);
-                            Logger.Write(string.Empty);
-                        }
-                    }
-
-                    var projectItemPath = projectItem.FileNames[0];
-                    var fileDestination = Path.GetDirectoryName(inputFileName);
-
-                    var testSections = WordDocumentHelper.GetTestSections(projectItemPath);
-
-                    foreach (var testSection in testSections)
-                    {
-                        var fileName = string.Concat(testSection.ClassName.GetClearName(), ".cs");
-                        var classContent = ClassBuilder.CreateClass(testSection);
-
-                        projectItem.AddProjectItem(fileDestination, fileName, classContent);
-                    }
+                    var fileName = string.Concat(testClass.Name, ".cs");
+                    var classContent = ClassBuilder.CreateClass(testClass);
+                    projectItem.AddProjectItem(
+                        fileDestination, 
+                        fileName,
+                        classContent);
                 }
+
             }
             catch (Exception ex)
             {
