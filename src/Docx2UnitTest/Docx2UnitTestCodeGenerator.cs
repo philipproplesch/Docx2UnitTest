@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
-using BetterCode.Tools;
 using Docx2UnitTest.Common;
 using Docx2UnitTest.FrameworkExtensions;
 using EnvDTE;

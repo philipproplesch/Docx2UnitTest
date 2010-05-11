@@ -26,10 +26,9 @@ namespace Docx2UnitTest
                 XmlNode paragraph = paragraphs[i];
 
                 if (IsDocumentHeadline(paragraph) || IsTestFrameworkDefinition(paragraph.InnerText) ||
-                    IsTargetProjectName(paragraph.InnerText) || string.IsNullOrWhiteSpace(paragraph.InnerText))
+                    /*IsTargetProjectName(paragraph.InnerText) ||*/ string.IsNullOrWhiteSpace(paragraph.InnerText))
                     continue;
-
-
+                
                 if (!paragraph.InnerXml.Contains("ListParagraph"))
                 {
                     if (testSection != null)
@@ -68,12 +67,12 @@ namespace Docx2UnitTest
 
         private static bool IsDocumentHeadline(XmlNode node)
         {
-            return Regex.IsMatch(node.InnerXml, "w:val=\"Heading[0-9]{1,}\"");
+            return Regex.IsMatch(node.InnerXml, "w:val=\"Heading[0-9]{1,}\"", RegexOptions.Compiled);
         }
 
         private static bool IsTestFrameworkDefinition(string input)
         {
-            Match match = Regex.Match(input, "Testing framework: (?<TestFramework>.{1,})");
+            Match match = Regex.Match(input, "Testing framework: (?<TestFramework>.{1,})", RegexOptions.Compiled);
 
             if (match.Success)
             {
@@ -97,7 +96,7 @@ namespace Docx2UnitTest
 
         private static bool IsTargetProjectName(string input)
         {
-            Match match = Regex.Match(input, "Target project: (?<TargetProject>.{1,})");
+            Match match = Regex.Match(input, "Target project: (?<TargetProject>.{1,})", RegexOptions.Compiled);
 
             if (match.Success)
             {

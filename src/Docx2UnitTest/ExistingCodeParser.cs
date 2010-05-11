@@ -4,7 +4,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using EnvDTE;
 
-namespace BetterCode.Tools
+namespace Docx2UnitTest
 {
     public static class ExistingCodeParser
     {
