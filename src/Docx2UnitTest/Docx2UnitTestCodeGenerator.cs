@@ -1,11 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
+<<<<<<< HEAD
 using BetterCode.Tools;
 using Docx2UnitTest.CodeGeneration;
 using Docx2UnitTest.Diagnostics;
+=======
+using Docx2UnitTest.Common;
+>>>>>>> f27f69da501f20d5e3bc428b8b321847e4c37fab
 using Docx2UnitTest.FrameworkExtensions;
 using EnvDTE;
 using Microsoft.CustomTool;
