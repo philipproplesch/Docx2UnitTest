@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace BetterCode.Tools.FrameworkExtensions
+namespace Docx2UnitTest.FrameworkExtensions
 {
     internal static class StringExtensions
     {

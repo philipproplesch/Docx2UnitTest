@@ -4,7 +4,7 @@ using System.Configuration.Install;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace BetterCode.Tools
+namespace Docx2UnitTest
 {
     [RunInstaller(true)]
     public class Setup : Installer

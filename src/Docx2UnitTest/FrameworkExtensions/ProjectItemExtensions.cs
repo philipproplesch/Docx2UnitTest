@@ -2,7 +2,7 @@
 using System.IO;
 using EnvDTE;
 
-namespace BetterCode.Tools.FrameworkExtensions
+namespace Docx2UnitTest.FrameworkExtensions
 {
     internal static class ProjectItemExtensions
     {

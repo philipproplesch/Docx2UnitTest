@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Packaging;
 using System.Xml;
-using BetterCode.Tools.Common;
+using Docx2UnitTest.Common;
 
-namespace BetterCode.Tools
+namespace Docx2UnitTest
 {
     internal class WordDocumentHelper
     {

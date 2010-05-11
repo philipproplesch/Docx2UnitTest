@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BetterCode.Tools
+namespace Docx2UnitTest
 {
     internal class Logger
     {

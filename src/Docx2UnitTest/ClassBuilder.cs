@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Text;
-using BetterCode.Tools.Common;
-using BetterCode.Tools.FrameworkExtensions;
+using Docx2UnitTest.Common;
+using Docx2UnitTest.FrameworkExtensions;
 
-namespace BetterCode.Tools
+namespace Docx2UnitTest
 {
     internal class ClassBuilder
     {

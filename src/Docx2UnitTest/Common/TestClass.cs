@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BetterCode.Tools.Common
+namespace Docx2UnitTest.Common
 {
     internal class TestClass
     {

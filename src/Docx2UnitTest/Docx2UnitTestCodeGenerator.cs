@@ -2,12 +2,12 @@
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
-using BetterCode.Tools.Common;
-using BetterCode.Tools.FrameworkExtensions;
+using Docx2UnitTest.Common;
+using Docx2UnitTest.FrameworkExtensions;
 using EnvDTE;
 using Microsoft.CustomTool;
 
-namespace BetterCode.Tools
+namespace Docx2UnitTest
 {
     [ComVisible(true)]
     [Guid("3b75d10d-2892-49d9-9939-7d13b56f55ca")]
