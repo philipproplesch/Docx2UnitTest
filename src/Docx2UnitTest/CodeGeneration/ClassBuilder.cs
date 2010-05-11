@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Text;
-using Docx2UnitTest.FrameworkExtensions;
 using Docx2UnitTest.Model;
 
 namespace Docx2UnitTest.CodeGeneration
 {
     internal class ClassBuilder
     {
-        public static ITestFramework TestFramework;
-
         internal static byte[] CreateClass(TestClassModel testClass)
         {
             var stringBuilder = new StringBuilder();
