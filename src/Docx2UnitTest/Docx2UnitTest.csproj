@@ -8,8 +8,8 @@
     <ProjectGuid>{BEAFFE56-FA8E-4BB3-99DC-607F26B79048}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BetterCode.Tools</RootNamespace>
-    <AssemblyName>BetterCode.Tools</AssemblyName>
+    <RootNamespace>Docx2UnitTest</RootNamespace>
+    <AssemblyName>Docx2UnitTest</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
