@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Packaging;
+using System.Text.RegularExpressions;
 using System.Xml;
 using Docx2UnitTest.Common;
+using Docx2UnitTest.TestFrameworks;
 
 namespace Docx2UnitTest
 {
@@ -22,6 +24,12 @@ namespace Docx2UnitTest
             for (int i = 0; i < paragraphs.Count; i++)
             {
                 XmlNode paragraph = paragraphs[i];
+
+                if (IsDocumentHeadline(paragraph) || IsTestFrameworkDefinition(paragraph.InnerText) ||
+                    IsTargetProjectName(paragraph.InnerText) || string.IsNullOrWhiteSpace(paragraph.InnerText))
+                    continue;
+
+
                 if (!paragraph.InnerXml.Contains("ListParagraph"))
                 {
                     if (testSection != null)
@@ -56,6 +64,48 @@ namespace Docx2UnitTest
 
                 return xmlDoc.DocumentElement != null ? xmlDoc : null;
             }
+        }
+
+        private static bool IsDocumentHeadline(XmlNode node)
+        {
+            return Regex.IsMatch(node.InnerXml, "w:val=\"Heading[0-9]{1,}\"");
+        }
+
+        private static bool IsTestFrameworkDefinition(string input)
+        {
+            Match match = Regex.Match(input, "Testing framework: (?<TestFramework>.{1,})");
+
+            if (match.Success)
+            {
+                string testFramework = match.Groups["TestFramework"].Value;
+                switch (testFramework.ToLowerInvariant())
+                {
+                    case "nunit":
+                        ClassBuilder.TestFramework = new NUnitFramework();
+                        break;
+                    case "mstest":
+                        ClassBuilder.TestFramework = new MSTestFramework();
+                        break;
+                    case "xunit":
+                        ClassBuilder.TestFramework = new XUnitFramework();
+                        break;
+                }
+            }
+
+            return match.Success;
+        }
+
+        private static bool IsTargetProjectName(string input)
+        {
+            Match match = Regex.Match(input, "Target project: (?<TargetProject>.{1,})");
+
+            if (match.Success)
+            {
+                // TODO
+                // string projectName = match.Groups["TargetProject"].Value;
+            }
+
+            return match.Success;
         }
     }
 }

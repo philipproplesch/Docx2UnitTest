@@ -1,27 +1,42 @@
 ﻿using System;
 using System.Text;
 using Docx2UnitTest.FrameworkExtensions;
+using Docx2UnitTest.TestFrameworks;
 
 namespace Docx2UnitTest.Common
 {
     internal class ClassBuilder
     {
+        public static ITestFramework TestFramework;
+
         internal static byte[] CreateClass(TestClass testClass)
         {
             var stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine("using System;");
-            stringBuilder.AppendLine("using NUnit.Framework;");
+
+            // Add "usings"
+            foreach (string requiredUsing in TestFramework.RequiredUsings)
+            {
+                stringBuilder.AppendLine(requiredUsing);
+            }
             stringBuilder.AppendLine("");
 
-            stringBuilder.AppendLine("[TestFixture]");
-            stringBuilder.AppendLine("[Category(\"\")]");
+            // Add class attributes.
+            foreach (string classAttribute in TestFramework.ClassAttributes)
+            {
+                stringBuilder.AppendLine(classAttribute);
+            }
             stringBuilder.AppendLine(String.Concat("public class ", testClass.ClassName.GetClearName()));
             stringBuilder.AppendLine("{");
 
             for (int i = 0; i < testClass.MethodNames.Count; i++)
             {
                 string methodName = testClass.MethodNames[i];
-                stringBuilder.AppendLine("\t[Test]");
+
+                // Add method attributes.
+                foreach (string methodAttribute in TestFramework.MethodAttributes)
+                {
+                    stringBuilder.AppendLine(string.Concat("\t", methodAttribute));
+                }
                 stringBuilder.AppendLine(String.Format("\tpublic void {0}()", methodName.GetClearName()));
                 stringBuilder.AppendLine("\t{");
                 stringBuilder.AppendLine("\t\tthrow new NotImplementedException();");
