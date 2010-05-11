@@ -1,14 +1,20 @@
-﻿using System;
+﻿using System.Text;
 
 namespace Docx2UnitTest.Common
 {
     internal class Logger
     {
-        internal static string Message { get; private set; }
+        private static readonly StringBuilder s_messageBuilder = 
+            new StringBuilder();
 
         internal static void Write(string message)
         {
-            Message += string.Concat(message, Environment.NewLine);
+            s_messageBuilder.AppendLine(message);
+        }
+
+        public static string Message
+        {
+            get { return s_messageBuilder.ToString(); }
         }
     }
 }
