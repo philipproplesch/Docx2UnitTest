@@ -26,7 +26,10 @@ namespace Docx2UnitTest
             string regasmPath = RuntimeEnvironment.GetRuntimeDirectory() + @"regasm.exe";
             string assemblyPath = GetType().Assembly.Location;
 
-            Process.Start(regasmPath, string.Format("{0} \"{1}\"", parameter, assemblyPath));
+            var regasm = new ProcessStartInfo(regasmPath, string.Format("{0} \"{1}\"", parameter, assemblyPath));
+            regasm.WindowStyle = ProcessWindowStyle.Hidden;
+
+            Process.Start(regasm);
         }
     }
 }
