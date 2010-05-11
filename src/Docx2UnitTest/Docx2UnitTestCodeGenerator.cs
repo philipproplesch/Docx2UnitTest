@@ -27,12 +27,14 @@ namespace Docx2UnitTest
                 var projectItemPath = projectItem.FileNames[0];
                 var fileDestination = Path.GetDirectoryName(inputFileName);
 
-                var testSections = 
+                var testFramework = 
                     OpenXmlParser.GetTestFramework(projectItemPath);
 
+                TestFileModelParser.UpdateModel(
+                    projectItem.ProjectItems, 
+                    testFramework);
 
-
-                foreach (var testClass in testSections.Classes)
+                foreach (var testClass in testFramework.Classes)
                 {
                     var fileName = string.Concat(testClass.Name, ".cs");
                     var classContent = ClassBuilder.CreateClass(testClass);

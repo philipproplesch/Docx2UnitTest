@@ -8,6 +8,9 @@ namespace Docx2UnitTest.Model
         public BaseTestFramework()
         {
             Classes = new List<TestClassModel>();
+            RequiredUsings = new List<string>();
+            RequiredClassAttributes = new List<string>();
+            RequiredMethodAttributes = new List<string>();
         }
 
         public List<string> RequiredUsings { get; protected set; }

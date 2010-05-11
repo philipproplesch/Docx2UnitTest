@@ -34,6 +34,7 @@ namespace Docx2UnitTest
                 if ((tf = GetTestFremework(paragraph.InnerText)) != null)
                 {
                     testFramework = tf;
+                    continue;
                 }
                 
                 if (!paragraph.InnerXml.Contains("ListParagraph") &&
@@ -42,6 +43,7 @@ namespace Docx2UnitTest
                     testClass =
                         testFramework.CreateTestClassModel(
                             paragraph.InnerText.GetClearName());
+                    testFramework.Classes.Add(testClass);
                     continue;                       
                 }
                 
@@ -91,7 +93,7 @@ namespace Docx2UnitTest
         private static ITestFramework GetTestFremework(string input)
         {
             var match = s_testFrameworkRegex.Match(input);
-            if (match.Success) return null;
+            if (!match.Success) return null;
 
             var testFramework = match.Groups["TestFramework"].Value;
             switch (testFramework.ToLowerInvariant())
