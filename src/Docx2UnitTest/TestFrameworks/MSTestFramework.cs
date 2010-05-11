@@ -8,7 +8,7 @@ namespace Docx2UnitTest.TestFrameworks
 
         public List<string> RequiredUsings
         {
-            get { return new List<string> {"using System;", "using Microsoft.VisualStudio.TestTools.UnitTesting;"}; }
+            get { return new List<string> {"System", "Microsoft.VisualStudio.TestTools.UnitTesting"}; }
         }
 
         public List<string> ClassAttributes

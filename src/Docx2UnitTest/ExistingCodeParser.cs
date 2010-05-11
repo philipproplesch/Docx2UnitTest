@@ -18,8 +18,7 @@ namespace Docx2UnitTest
         {
             var dictionary = 
                 new Dictionary<string, Dictionary<string, string>>();
-
-
+            
             for (var i = 0; i < projectItems.Count; i++)
             {
                 var projectItem = projectItems.Item(i);

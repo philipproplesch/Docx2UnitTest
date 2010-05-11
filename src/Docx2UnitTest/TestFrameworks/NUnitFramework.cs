@@ -11,7 +11,7 @@ namespace Docx2UnitTest.TestFrameworks
             get
             {
                 return new List<string>
-                           {"using System;", "using NUnit.Framework;"};
+                           {"System;", "NUnit.Framework"};
             }
         }
 

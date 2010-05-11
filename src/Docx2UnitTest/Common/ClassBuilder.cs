@@ -16,7 +16,7 @@ namespace Docx2UnitTest.Common
             // Add "usings"
             foreach (string requiredUsing in TestFramework.RequiredUsings)
             {
-                stringBuilder.AppendLine(requiredUsing);
+                stringBuilder.AppendLine(string.Format("using {0};", requiredUsing));
             }
             stringBuilder.AppendLine("");
 
