@@ -32,13 +32,7 @@ namespace BetterCode.Tools
                     ".log",
                     StringComparison.OrdinalIgnoreCase)) continue;
 
-                var fileContent = string.Empty;
-                using(var sr = new StreamReader(projectItem.FileNames[0]))
-                {
-                    fileContent = sr.ReadToEnd();
-                }
-
-                var matches = _codeRegex.Matches(fileContent);
+                
 
                 var testClass =
                     (from tc in fw.Classes
@@ -50,7 +44,24 @@ namespace BetterCode.Tools
                     //todo: dump code to log....
                     continue;
                 }
+                
+                var fileContent = string.Empty;
+                using(var sr = new StreamReader(projectItem.FileNames[0]))
+                {
+                    fileContent = sr.ReadToEnd();
+                }
 
+                var usingMatches = _usingRegex.Matches(fileContent);
+                for (var j = 0; j < usingMatches.Count; j++)
+                {
+                    var match = usingMatches[j];
+                    if(!testClass.UsingStatements.Contains(match.Value))
+                    {
+                        testClass.UsingStatements.Add(match.Value);
+                    }
+                }
+
+                var matches = _codeRegex.Matches(fileContent);
                 for (var j = 0; j < matches.Count; j++)
                 {
                     var match = matches[j];
@@ -58,6 +69,7 @@ namespace BetterCode.Tools
                     if (!match.Success) continue;
 
                     var testName = match.Groups["testname"].Value;
+                    var testAttributes = match.Groups["attributes"].Value;
                     var testImplementation = match.Groups["code"].Value;
 
                     var test = 
@@ -71,6 +83,7 @@ namespace BetterCode.Tools
                         continue;
                     }
 
+                    test.Attributes = testAttributes;
                     test.Implementation = testImplementation;
                 }
             }
