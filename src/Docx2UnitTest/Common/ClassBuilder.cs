@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Text;
-using Docx2UnitTest.Common;
 using Docx2UnitTest.FrameworkExtensions;
 
-namespace Docx2UnitTest
+namespace Docx2UnitTest.Common
 {
     internal class ClassBuilder
     {

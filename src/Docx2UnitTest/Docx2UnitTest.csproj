@@ -54,12 +54,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassBuilder.cs" />
+    <Compile Include="Common\ClassBuilder.cs" />
     <Compile Include="Common\TestClass.cs" />
     <Compile Include="Docx2UnitTestCodeGenerator.cs" />
     <Compile Include="FrameworkExtensions\ProjectItemExtensions.cs" />
     <Compile Include="FrameworkExtensions\StringExtensions.cs" />
-    <Compile Include="Logger.cs" />
+    <Compile Include="Common\Logger.cs" />
     <Compile Include="Setup.cs">
       <SubType>Component</SubType>
     </Compile>
