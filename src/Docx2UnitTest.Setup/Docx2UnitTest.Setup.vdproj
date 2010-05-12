@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_17C85F0873F39C49ABC2619698CCFB62"
+        "OwnerKey" = "8:_69958BB01E814B708BD555CA1E644102"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_3D3B4EE56E5E5E50CF5A987F2E6531F2"
         "OwnerKey" = "8:_69958BB01E814B708BD555CA1E644102"
         "MsmSig" = "8:_UNDEFINED"
@@ -22,7 +28,7 @@
         "Entry"
         {
         "MsmKey" = "8:_3D3B4EE56E5E5E50CF5A987F2E6531F2"
-        "OwnerKey" = "8:_497B321932DF375C39910A99C2B793A9"
+        "OwnerKey" = "8:_17C85F0873F39C49ABC2619698CCFB62"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -34,13 +40,7 @@
         "Entry"
         {
         "MsmKey" = "8:_3E0192792F48DE9E3BB09B6F9193C767"
-        "OwnerKey" = "8:_497B321932DF375C39910A99C2B793A9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_497B321932DF375C39910A99C2B793A9"
-        "OwnerKey" = "8:_69958BB01E814B708BD555CA1E644102"
+        "OwnerKey" = "8:_17C85F0873F39C49ABC2619698CCFB62"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -64,7 +64,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_497B321932DF375C39910A99C2B793A9"
+        "OwnerKey" = "8:_17C85F0873F39C49ABC2619698CCFB62"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -212,6 +212,37 @@
         }
         "File"
         {
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_17C85F0873F39C49ABC2619698CCFB62"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.VisualStudio.BaseCodeGeneratorWithSite, Version=1.1.0.0, Culture=neutral, PublicKeyToken=fd07cb18fc57563b"
+                "ScatterAssemblies"
+                {
+                    "_17C85F0873F39C49ABC2619698CCFB62"
+                    {
+                    "Name" = "8:Microsoft.VisualStudio.BaseCodeGeneratorWithSite.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.VisualStudio.BaseCodeGeneratorWithSite.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_BF31D6388AA34A03A8CC6B514B659AD4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3D3B4EE56E5E5E50CF5A987F2E6531F2"
             {
             "AssemblyRegister" = "3:1"
@@ -257,37 +288,6 @@
                     }
                 }
             "SourcePath" = "8:VSLangProj.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_BF31D6388AA34A03A8CC6B514B659AD4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_497B321932DF375C39910A99C2B793A9"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.VisualStudio.BaseCodeGeneratorWithSite, Version=1.1.0.0, Culture=neutral, PublicKeyToken=fd07cb18fc57563b"
-                "ScatterAssemblies"
-                {
-                    "_497B321932DF375C39910A99C2B793A9"
-                    {
-                    "Name" = "8:Microsoft.VisualStudio.BaseCodeGeneratorWithSite.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Microsoft.VisualStudio.BaseCodeGeneratorWithSite.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BF31D6388AA34A03A8CC6B514B659AD4"
@@ -390,15 +390,15 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Philip Proplesch"
+        "Manufacturer" = "8:devplex.net"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:Docx2UnitTest"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Philip Proplesch"
+        "ARPCONTACT" = "8:devplex.net"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
-        "ARPURLINFOABOUT" = "8:http://www.philipproplesch.de/"
+        "ARPURLINFOABOUT" = "8:http://www.devplex.net/"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
