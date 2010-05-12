@@ -16,19 +16,22 @@ namespace Docx2UnitTest.CodeGeneration
             }
             stringBuilder.AppendLine("");
 
-            stringBuilder.AppendLine(testClass.Attributes);
+            stringBuilder.AppendLine(
+                testClass.Attributes.TrimEnd('\r').TrimEnd('\n'));
             
             stringBuilder.AppendLine(String.Concat("public class ", testClass.Name));
             stringBuilder.AppendLine("{");
 
             foreach (var test in testClass.Tests)
             {
-                stringBuilder.AppendLine(test.Attributes);
+                //todo: add tab for namespace indent
+                stringBuilder.Append("\t");
+                stringBuilder.AppendLine(test.Attributes.TrimEnd('\n').TrimEnd('\r').TrimEnd('\n'));
 
                 stringBuilder.Append("\tpublic void ");
                 stringBuilder.Append(test.Name);
-                stringBuilder.Append("()");
-                stringBuilder.AppendLine("\t{");
+                stringBuilder.AppendLine("()");
+                stringBuilder.Append("\t{");
                 stringBuilder.AppendLine(test.Implementation);
                 stringBuilder.AppendLine("\t}");
                 
