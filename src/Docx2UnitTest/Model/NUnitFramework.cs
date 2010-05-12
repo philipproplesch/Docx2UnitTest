@@ -1,7 +1,14 @@
-﻿namespace Docx2UnitTest.Model
+﻿namespace devplex.Tools.Model
 {
-    internal class NUnitFramework : BaseTestFramework
+    /// <summary>
+    /// Implementation of the test framework from NUnit.
+    /// </summary>
+    internal class NUnitFramework 
+        : BaseTestFramework
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NUnitFramework"/> class.
+        /// </summary>
         public NUnitFramework()
         {
             RequiredUsings.Add("using System;");

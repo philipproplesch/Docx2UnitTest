@@ -1,30 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Docx2UnitTest.Model;
+using devplex.Tools.Model;
 using EnvDTE;
 
-namespace BetterCode.Tools
+namespace devplex.Tools
 {
+    /// <summary>
+    /// Parser for existing project items.
+    /// </summary>
     internal static class TestFileModelParser
     {
-        private static readonly Regex _codeRegex = 
+        private static readonly Regex s_codeRegex = 
             new Regex(
-                @"\r\n\t(?<attributes>[\[|\]|a-z|A-Z|0-9|\(|\)|\&|\<|\>|\/|\s|\r\n\t]*)\r\n\tpublic\svoid\s(?<testname>[A-Z|a-z|0-9|_]*)\(\)\r\n\t\{(?<code>[a-z|A-Z|\s|\n|\r|\||\!|\&|\+|\~|\{|\}|\=|\""|\'|;|\<|\>|\.|\,|\(|\)|\@|\[|\]|\\|\/]*)\r\n\t\}", 
+                @"\r\n\t\t(?<attributes>[\[|\]|a-z|A-Z|0-9|\(|\)|\&|\<|\>|\/|\s|\r\n\t]*)\r\n\t\tpublic\svoid\s(?<testname>[A-Z|a-z|0-9|_]*)\(\)\r\n\t\t\{(?<code>[a-z|A-Z|\s|\n|\r|\||\!|\&|\+|\~|\{|\}|\=|\""|\'|;|\<|\>|\*|\.|\,|\(|\)|\@|\[|\]|\\|\/]*)\r\n\t\t\}", 
                 RegexOptions.Compiled);
 
-        private static readonly Regex _usingRegex = 
+        private static readonly Regex s_usingRegex = 
             new Regex(
                 @"using\s(?<namespace>[a-z|A-Z|0-9|_|\-|\.]{3,200})\;", 
                 RegexOptions.Compiled);
 
+        #region UpdateModel(ProjectItems projectItems, ITestFramework fw)
+         /// <summary>
+        /// Updates the model.
+        /// </summary>
+        /// <param name="projectItems">The project items.</param>
+        /// <param name="fw">The fw.</param>
         public static void UpdateModel(
             ProjectItems projectItems,
             ITestFramework fw)
         {
-            for (var i = 1; i < projectItems.Count-1; i++)
+            for (var i = 1; i < projectItems.Count - 1; i++)
             {
                 var projectItem = projectItems.Item(i);
 
@@ -32,36 +40,34 @@ namespace BetterCode.Tools
                     ".log",
                     StringComparison.OrdinalIgnoreCase)) continue;
 
-                
-
                 var testClass =
                     (from tc in fw.Classes
                      where tc.Name == projectItem.Name.Replace(".cs", "")
                      select tc).FirstOrDefault();
 
-                if(testClass == null)
+                if (testClass == null)
                 {
                     //todo: dump code to log....
                     continue;
                 }
-                
-                var fileContent = string.Empty;
-                using(var sr = new StreamReader(projectItem.FileNames[0]))
+
+                string fileContent;
+                using (var sr = new StreamReader(projectItem.FileNames[0]))
                 {
                     fileContent = sr.ReadToEnd();
                 }
 
-                var usingMatches = _usingRegex.Matches(fileContent);
+                var usingMatches = s_usingRegex.Matches(fileContent);
                 for (var j = 0; j < usingMatches.Count; j++)
                 {
                     var match = usingMatches[j];
-                    if(!testClass.UsingStatements.Contains(match.Value))
+                    if (!testClass.UsingStatements.Contains(match.Value))
                     {
                         testClass.UsingStatements.Add(match.Value);
                     }
                 }
 
-                var matches = _codeRegex.Matches(fileContent);
+                var matches = s_codeRegex.Matches(fileContent);
                 for (var j = 0; j < matches.Count; j++)
                 {
                     var match = matches[j];
@@ -72,9 +78,9 @@ namespace BetterCode.Tools
                     var testAttributes = match.Groups["attributes"].Value;
                     var testImplementation = match.Groups["code"].Value;
 
-                    var test = 
+                    var test =
                         (from t in testClass.Tests
-                         where t.Name == testName 
+                         where t.Name == testName
                          select t).FirstOrDefault();
 
                     if (test == null)
@@ -87,6 +93,7 @@ namespace BetterCode.Tools
                     test.Implementation = testImplementation;
                 }
             }
-        }
+        } 
+        #endregion
     }
 }

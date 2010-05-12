@@ -1,10 +1,69 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace Docx2UnitTest.Model
+namespace devplex.Tools.Model
 {
-    internal class BaseTestFramework : ITestFramework
+    /// <summary>
+    /// BAse implementatiopn for a test framework.
+    /// </summary>
+    internal class BaseTestFramework
+        : ITestFramework
     {
+
+
+        #region TargetProject
+        /// <summary>
+        /// Gets or sets the target project.
+        /// </summary>
+        /// <value>The target project.</value>
+        public string TargetProject { get; set; } 
+        #endregion
+
+        #region Namespace
+        /// <summary>
+        /// Gets or sets the namespace.
+        /// </summary>
+        /// <value>The namespace.</value>
+        public string Namespace { get; set; } 
+        #endregion
+
+        #region RequiredUsings
+        /// <summary>
+        /// Gets or sets the required usings.
+        /// </summary>
+        /// <value>The required usings.</value>
+        public List<string> RequiredUsings { get; protected set; } 
+        #endregion
+
+        #region RequiredClassAttributes
+        /// <summary>
+        /// Gets or sets the required class attributes.
+        /// </summary>
+        /// <value>The required class attributes.</value>
+        public List<string> RequiredClassAttributes { get; set; } 
+        #endregion
+
+        #region RequiredMethodAttributes
+        /// <summary>
+        /// Gets or sets the required method attributes.
+        /// </summary>
+        /// <value>The required method attributes.</value>
+        public List<string> RequiredMethodAttributes { get; set; } 
+        #endregion
+
+        #region Classes
+        /// <summary>
+        /// Gets or sets the classes.
+        /// </summary>
+        /// <value>The classes.</value>
+        public List<TestClassModel> Classes { get; private set; } 
+        #endregion
+
+
+        #region ctor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BaseTestFramework"/> class.
+        /// </summary>
         public BaseTestFramework()
         {
             Classes = new List<TestClassModel>();
@@ -12,30 +71,35 @@ namespace Docx2UnitTest.Model
             RequiredClassAttributes = new List<string>();
             RequiredMethodAttributes = new List<string>();
         }
+        #endregion
 
-        public List<string> RequiredUsings { get; protected set; }
-        public List<string> RequiredClassAttributes { get; set; }
-        public List<string> RequiredMethodAttributes { get; set; }
-        public List<TestClassModel> Classes { get; private set; }
 
+        #region CreateTestClassModel(string name)
+        /// <summary>
+        /// Creates the test class model.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
         public TestClassModel CreateTestClassModel(string name)
         {
             var testClass =
                 new TestClassModel
                     {
                         Name = name,
+                        Namespace = Namespace,
                         UsingStatements = RequiredUsings
                     };
 
             var classAttributeBuilder = new StringBuilder();
+            var counter = 0;
             foreach (var attribute in RequiredClassAttributes)
             {
-                //todo: add tab for namespace indent
-                //classAttributeBuilder.Append("\t");
+                if (counter > 0) classAttributeBuilder.Append("\t");
                 classAttributeBuilder.Append(attribute);
                 classAttributeBuilder.Append("\r\n");
+                counter++;
             }
-            if(classAttributeBuilder.Length>0)
+            if (classAttributeBuilder.Length > 0)
             {
                 classAttributeBuilder.Remove(
                     classAttributeBuilder.Length - 2, 2);
@@ -44,25 +108,34 @@ namespace Docx2UnitTest.Model
 
             return testClass;
 
-        }
+        } 
+        #endregion
 
+        #region CreateTestModel(string name)
+        /// <summary>
+        /// Creates the test model.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
         public TestModel CreateTestModel(string name)
         {
             var test =
                 new TestModel
                     {
-                        //todo: add tab for namespace indent
                         Name = name,
-                        Implementation = 
-                        "\r\n\t\tthrow new NotImplementedException();",
-                };
+                        Implementation =
+                        "\r\n\t\t\tthrow new NotImplementedException();",
+                    };
 
 
             var attributeBuilder = new StringBuilder();
+            var counter = 0;
             foreach (var attribute in RequiredMethodAttributes)
-            {           
+            {
+                if (counter > 0) attributeBuilder.Append("\t\t");
                 attributeBuilder.Append(attribute);
                 attributeBuilder.Append("\r\n");
+                counter++;
             }
             if (attributeBuilder.Length > 0)
             {
@@ -73,7 +146,8 @@ namespace Docx2UnitTest.Model
 
             return test;
 
-        }
+        } 
+        #endregion
 
     }
 }

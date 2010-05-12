@@ -8,8 +8,8 @@
     <ProjectGuid>{BEAFFE56-FA8E-4BB3-99DC-607F26B79048}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Docx2UnitTest</RootNamespace>
-    <AssemblyName>Docx2UnitTest</AssemblyName>
+    <RootNamespace>devplex.Tools</RootNamespace>
+    <AssemblyName>devplex.Tools.Docx2UnitTest</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

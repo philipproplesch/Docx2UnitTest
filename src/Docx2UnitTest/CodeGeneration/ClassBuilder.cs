@@ -1,11 +1,20 @@
 ﻿using System;
 using System.Text;
-using Docx2UnitTest.Model;
+using devplex.Tools.Model;
 
-namespace Docx2UnitTest.CodeGeneration
+namespace devplex.Tools.CodeGeneration
 {
+    /// <summary>
+    /// Class builder.
+    /// </summary>
     internal class ClassBuilder
     {
+        #region  CreateClass(TestClassModel testClass)
+        /// <summary>
+        /// Creates the class.
+        /// </summary>
+        /// <param name="testClass">The test class.</param>
+        /// <returns></returns>
         internal static byte[] CreateClass(TestClassModel testClass)
         {
             var stringBuilder = new StringBuilder();
@@ -16,31 +25,38 @@ namespace Docx2UnitTest.CodeGeneration
             }
             stringBuilder.AppendLine("");
 
+            stringBuilder.Append("namespace ");
+            stringBuilder.AppendLine(testClass.Namespace);
+            stringBuilder.AppendLine("{");
+
+            stringBuilder.Append("\t");
+
             stringBuilder.AppendLine(
                 testClass.Attributes.TrimEnd('\r').TrimEnd('\n'));
-            
-            stringBuilder.AppendLine(String.Concat("public class ", testClass.Name));
-            stringBuilder.AppendLine("{");
+
+            stringBuilder.AppendLine(String.Concat("\tpublic class ", testClass.Name));
+            stringBuilder.AppendLine("\t{");
 
             foreach (var test in testClass.Tests)
             {
-                //todo: add tab for namespace indent
-                stringBuilder.Append("\t");
+                stringBuilder.Append("\t\t");
                 stringBuilder.AppendLine(test.Attributes.TrimEnd('\n').TrimEnd('\r').TrimEnd('\n'));
 
-                stringBuilder.Append("\tpublic void ");
+                stringBuilder.Append("\t\tpublic void ");
                 stringBuilder.Append(test.Name);
                 stringBuilder.AppendLine("()");
-                stringBuilder.Append("\t{");
+                stringBuilder.Append("\t\t{");
                 stringBuilder.AppendLine(test.Implementation);
-                stringBuilder.AppendLine("\t}");
-                
+                stringBuilder.AppendLine("\t\t}");
+
                 stringBuilder.AppendLine("");
             }
             stringBuilder.Remove(stringBuilder.Length - 1, 1);
-            stringBuilder.AppendLine("}");
+            stringBuilder.AppendLine("\t}"); // class
 
+            stringBuilder.AppendLine("}"); // namespace
             return Encoding.UTF8.GetBytes(stringBuilder.ToString());
-        }
+        } 
+        #endregion
     }
 }

@@ -15,12 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_161BCBB14246AFEC4BA16407138D416E"
-        "OwnerKey" = "8:_69958BB01E814B708BD555CA1E644102"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_3D3B4EE56E5E5E50CF5A987F2E6531F2"
         "OwnerKey" = "8:_69958BB01E814B708BD555CA1E644102"
         "MsmSig" = "8:_UNDEFINED"
@@ -28,7 +22,7 @@
         "Entry"
         {
         "MsmKey" = "8:_3D3B4EE56E5E5E50CF5A987F2E6531F2"
-        "OwnerKey" = "8:_161BCBB14246AFEC4BA16407138D416E"
+        "OwnerKey" = "8:_497B321932DF375C39910A99C2B793A9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -40,7 +34,13 @@
         "Entry"
         {
         "MsmKey" = "8:_3E0192792F48DE9E3BB09B6F9193C767"
-        "OwnerKey" = "8:_161BCBB14246AFEC4BA16407138D416E"
+        "OwnerKey" = "8:_497B321932DF375C39910A99C2B793A9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_497B321932DF375C39910A99C2B793A9"
+        "OwnerKey" = "8:_69958BB01E814B708BD555CA1E644102"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -64,7 +64,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_161BCBB14246AFEC4BA16407138D416E"
+        "OwnerKey" = "8:_497B321932DF375C39910A99C2B793A9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -212,37 +212,6 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_161BCBB14246AFEC4BA16407138D416E"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.VisualStudio.BaseCodeGeneratorWithSite, Version=1.1.0.0, Culture=neutral, PublicKeyToken=fd07cb18fc57563b"
-                "ScatterAssemblies"
-                {
-                    "_161BCBB14246AFEC4BA16407138D416E"
-                    {
-                    "Name" = "8:Microsoft.VisualStudio.BaseCodeGeneratorWithSite.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Microsoft.VisualStudio.BaseCodeGeneratorWithSite.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_BF31D6388AA34A03A8CC6B514B659AD4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3D3B4EE56E5E5E50CF5A987F2E6531F2"
             {
             "AssemblyRegister" = "3:1"
@@ -288,6 +257,37 @@
                     }
                 }
             "SourcePath" = "8:VSLangProj.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_BF31D6388AA34A03A8CC6B514B659AD4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_497B321932DF375C39910A99C2B793A9"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.VisualStudio.BaseCodeGeneratorWithSite, Version=1.1.0.0, Culture=neutral, PublicKeyToken=fd07cb18fc57563b"
+                "ScatterAssemblies"
+                {
+                    "_497B321932DF375C39910A99C2B793A9"
+                    {
+                    "Name" = "8:Microsoft.VisualStudio.BaseCodeGeneratorWithSite.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.VisualStudio.BaseCodeGeneratorWithSite.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BF31D6388AA34A03A8CC6B514B659AD4"
@@ -494,7 +494,7 @@
                                                                             "Condition" = "8:"
                                                                             "Transitive" = "11:FALSE"
                                                                             "ValueTypes" = "3:1"
-                                                                            "Value" = "8:BetterCode.Tools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=05238fbed91fbc6c"
+                                                                            "Value" = "8:devplex.Tools.Docx2UnitTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=05238fbed91fbc6c"
                                                                             }
                                                                             "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_4827454AC37643C1A6C8DDE918678398"
                                                                             {
@@ -502,7 +502,7 @@
                                                                             "Condition" = "8:"
                                                                             "Transitive" = "11:FALSE"
                                                                             "ValueTypes" = "3:1"
-                                                                            "Value" = "8:BetterCode.Tools.Docx2UnitTestCodeGenerator"
+                                                                            "Value" = "8:devplex.Tools.Tools.Docx2UnitTestCodeGenerator"
                                                                             }
                                                                             "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_B644F3ECF46845B4835F08C94B3ED91A"
                                                                             {
@@ -949,7 +949,7 @@
                                                                     "Condition" = "8:"
                                                                     "Transitive" = "11:FALSE"
                                                                     "ValueTypes" = "3:1"
-                                                                    "Value" = "8:BetterCode.Tools.Docx2UnitTestCodeGenerator"
+                                                                    "Value" = "8:devplex.Tools.Docx2UnitTestCodeGenerator"
                                                                     }
                                                                     "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_FE7FBB0969FE4D539DED124B46EA0891"
                                                                     {
@@ -957,7 +957,7 @@
                                                                     "Condition" = "8:"
                                                                     "Transitive" = "11:FALSE"
                                                                     "ValueTypes" = "3:1"
-                                                                    "Value" = "8:BetterCode.Tools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=05238fbed91fbc6c"
+                                                                    "Value" = "8:devplex.Tools.Docx2UnitTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=05238fbed91fbc6c"
                                                                     }
                                                                 }
                                                             }
@@ -1419,7 +1419,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_69958BB01E814B708BD555CA1E644102"
             {
-            "SourcePath" = "8:..\\BetterCode.Tools\\obj\\Release\\BetterCode.Tools.dll"
+            "SourcePath" = "8:..\\Docx2UnitTest\\obj\\Debug\\devplex.Tools.Docx2UnitTest.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BF31D6388AA34A03A8CC6B514B659AD4"

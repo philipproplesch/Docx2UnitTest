@@ -1,30 +1,45 @@
 ﻿using System;
 using System.IO;
-using Docx2UnitTest.Diagnostics;
+using devplex.Tools.Diagnostics;
 using EnvDTE;
 
-namespace Docx2UnitTest.FrameworkExtensions
+namespace devplex.Tools.FrameworkExtensions
 {
+    /// <summary>
+    /// Extensions for the ProjectItem class.
+    /// </summary>
     internal static class ProjectItemExtensions
     {
-        internal static void AddProjectItem(this ProjectItem instance, string fileDestination, string fileName,
-                                            byte[] content)
+        /// <summary>
+        /// Adds the project item.
+        /// </summary>
+        /// <param name="instance">The instance.</param>
+        /// <param name="fileDestination">The file destination.</param>
+        /// <param name="fileName">Name of the file.</param>
+        /// <param name="content">The content.</param>
+        internal static void AddProjectItem(
+            this ProjectItem instance, 
+            string fileDestination, 
+            string fileName,
+            byte[] content)
         {
-            string filePath = Path.Combine(fileDestination, fileName);
+            var filePath = Path.Combine(fileDestination, fileName);
 
-            //if (File.Exists(filePath))
-            //    return;
-
-            using (FileStream file = File.OpenWrite(filePath))
+            using (var file = File.OpenWrite(filePath))
             {
                 file.Write(content, 0, content.Length);
                 file.SetLength(content.Length);
             }
 
-            ProjectItem projectItem = instance.ProjectItems.AddFromFile(filePath);
+            var projectItem = instance.ProjectItems.AddFromFile(filePath);
 
             if (projectItem != null)
-                Logger.Write(String.Concat(fileName, " has been created successful."));
+            {
+                Logger.Write(
+                    string.Concat(
+                        fileName, 
+                        " has been created successful."));
+            }
         }
     }
 }
