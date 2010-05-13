@@ -29,6 +29,7 @@ Supported frameworks are:
  - MsTest
  - NUnit
  - XUnit
+ - MbUnit
   
 Bugs:
  None known yet. Please add tickest to the GitHub project.
