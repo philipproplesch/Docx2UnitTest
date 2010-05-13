@@ -1,6 +1,6 @@
 Docx2UnitTest
 =============
-A Visual Studio 2010 cutom tool to generate unit tests from Microsoft(r) 
+A Visual Studio 2010 custom tool to generate unit tests from Microsoft(r) 
 Word(r) 2007/2010 documents.
 
 Features:
@@ -13,14 +13,13 @@ Authors:
 
 Acknowledgements:
  The idea was taken from Thomas Bandt's blog post:
- http://blog.thomasbandt.de/39/2335/de/blog/blog/blog/word-to-code-
- kleiner-tdd-helper.html
+ http://blog.thomasbandt.de/39/2335/word-to-code- kleiner-tdd-helper.html
 
 How-To:
  Just add a *.docx file (like the included sample) to a project in 
  Visual Studio. The test classes will be generated immediately.
 
- To specify a specific tesing framework edit the following line in 
+ To specify a specific testing framework edit the following line in 
  the document:
 
 	Testing framework: {SupportedTestFramework}
@@ -32,7 +31,7 @@ Supported frameworks are:
  - MbUnit
   
 Bugs:
- None known yet. Please add tickest to the GitHub project.
+ None known yet. Please add tickets to the GitHub project.
  
 Wishlist:
  Contact us by e-mail. 
