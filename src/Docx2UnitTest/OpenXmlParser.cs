@@ -158,6 +158,9 @@ namespace devplex.Tools
                 case "xunit":
                     return new XUnitFramework();
 
+                case "mbunit":
+                    return new MbUnitFramework();
+
                 default:
                     return null;
             }
