@@ -21,6 +21,7 @@ namespace devplex.Tools
         //TODO: Add project items to foreign project
         //TODO: Generate class documentation
         //TODO: Generate method documentation
+        //TODO: xUnit BDD extensions
 
         #region GenerateCode(string inputFileName, string inputFileContent)
         /// <summary>
