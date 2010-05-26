@@ -91,56 +91,24 @@ namespace devplex.Tools
         }
         #endregion
 
-        private void AddReferences(VSProject vsProject, ITestFramework testFramework)
+        #region AddReferences(VSProject vsProject, ITestFramework testFramework)
+        /// <summary>
+        /// Adds the references.
+        /// </summary>
+        /// <param name="vsProject">The vs project.</param>
+        /// <param name="testFramework">The test framework.</param>
+        private static void AddReferences(VSProject vsProject, ITestFramework testFramework)
         {
             if (vsProject != null)
             {
                 string executingDirectory =
                     Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-                if (testFramework.GetType() == typeof(MsTestFramework))
+                foreach (string reference in testFramework.References)
                 {
                     try
                     {
-                        vsProject.References.Add(Path.Combine(
-                            executingDirectory, "MsTest",
-                            "Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll"));
-                    }
-                    catch (Exception ex)
-                    {
-                        Logger.Write(ex.ToString());
-                    }
-                }
-                else if (testFramework.GetType() == typeof(NUnitFramework))
-                {
-                    try
-                    {
-                        vsProject.References.Add(Path.Combine(
-                            executingDirectory, "NUnit", "nunit.framework.dll"));
-                    }
-                    catch (Exception ex)
-                    {
-                        Logger.Write(ex.ToString());
-                    }
-                }
-                else if (testFramework.GetType() == typeof(XUnitFramework))
-                {
-                    try
-                    {
-                        vsProject.References.Add(Path.Combine(
-                            executingDirectory, "xUnit.net", "xunit.dll"));
-                    }
-                    catch (Exception ex)
-                    {
-                        Logger.Write(ex.ToString());
-                    }
-                }
-                else if (testFramework.GetType() == typeof(MbUnitFramework))
-                {
-                    try
-                    {
-                        vsProject.References.Add(Path.Combine(
-                            executingDirectory, "MbUnit", "MbUnit.Framework.dll"));
+                        vsProject.References.Add(Path.Combine(executingDirectory, reference));
                     }
                     catch (Exception ex)
                     {
@@ -149,6 +117,7 @@ namespace devplex.Tools
                 }
             }
         }
+        #endregion
 
         #region GetDefaultExtension()
         /// <summary>

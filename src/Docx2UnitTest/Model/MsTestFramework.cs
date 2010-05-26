@@ -1,4 +1,6 @@
-﻿namespace devplex.Tools.Model
+﻿using System.IO;
+
+namespace devplex.Tools.Model
 {
     /// <summary>
     /// Implementation of the test framework from Microsoft.
@@ -11,6 +13,9 @@
         /// </summary>
         public MsTestFramework()
         {
+            References.Add(Path.Combine("MsTest",
+                                        "Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll"));
+
             RequiredUsings.Add("using System;");
             RequiredUsings.Add("using Microsoft.VisualStudio.TestTools.UnitTesting;");
 

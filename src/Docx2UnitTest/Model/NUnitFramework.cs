@@ -1,4 +1,6 @@
-﻿namespace devplex.Tools.Model
+﻿using System.IO;
+
+namespace devplex.Tools.Model
 {
     /// <summary>
     /// Implementation of the test framework from NUnit.
@@ -11,6 +13,8 @@
         /// </summary>
         public NUnitFramework()
         {
+            References.Add(Path.Combine("NUnit", "nunit.framework.dll"));
+
             RequiredUsings.Add("using System;");
             RequiredUsings.Add("using NUnit.Framework;");
 

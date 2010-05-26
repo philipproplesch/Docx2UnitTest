@@ -8,6 +8,12 @@ namespace devplex.Tools.Model
     internal interface ITestFramework
     {
         /// <summary>
+        /// Gets the references.
+        /// </summary>
+        /// <value>The references.</value>
+        List<string> References { get; }
+
+        /// <summary>
         /// Gets the required usings.
         /// </summary>
         /// <value>The required usings.</value>
@@ -43,7 +49,6 @@ namespace devplex.Tools.Model
         /// <value>The target project.</value>
         string TargetProject { get; set; }
 
-
         /// <summary>
         /// Creates the test class model.
         /// </summary>
@@ -57,6 +62,5 @@ namespace devplex.Tools.Model
         /// <param name="name">The name.</param>
         /// <returns></returns>
         TestModel CreateTestModel(string name);
-
     }
 }

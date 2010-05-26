@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace devplex.Tools.Model
@@ -16,7 +17,7 @@ namespace devplex.Tools.Model
         /// Gets or sets the target project.
         /// </summary>
         /// <value>The target project.</value>
-        public string TargetProject { get; set; } 
+        public string TargetProject { get; set; }
         #endregion
 
         #region Namespace
@@ -24,7 +25,15 @@ namespace devplex.Tools.Model
         /// Gets or sets the namespace.
         /// </summary>
         /// <value>The namespace.</value>
-        public string Namespace { get; set; } 
+        public string Namespace { get; set; }
+        #endregion
+
+        #region References
+        /// <summary>
+        /// Gets or sets the references.
+        /// </summary>
+        /// <value>The references.</value>
+        public List<string> References { get; protected set; }
         #endregion
 
         #region RequiredUsings
@@ -32,7 +41,7 @@ namespace devplex.Tools.Model
         /// Gets or sets the required usings.
         /// </summary>
         /// <value>The required usings.</value>
-        public List<string> RequiredUsings { get; protected set; } 
+        public List<string> RequiredUsings { get; protected set; }
         #endregion
 
         #region RequiredClassAttributes
@@ -40,7 +49,7 @@ namespace devplex.Tools.Model
         /// Gets or sets the required class attributes.
         /// </summary>
         /// <value>The required class attributes.</value>
-        public List<string> RequiredClassAttributes { get; set; } 
+        public List<string> RequiredClassAttributes { get; set; }
         #endregion
 
         #region RequiredMethodAttributes
@@ -48,7 +57,7 @@ namespace devplex.Tools.Model
         /// Gets or sets the required method attributes.
         /// </summary>
         /// <value>The required method attributes.</value>
-        public List<string> RequiredMethodAttributes { get; set; } 
+        public List<string> RequiredMethodAttributes { get; set; }
         #endregion
 
         #region Classes
@@ -56,7 +65,7 @@ namespace devplex.Tools.Model
         /// Gets or sets the classes.
         /// </summary>
         /// <value>The classes.</value>
-        public List<TestClassModel> Classes { get; private set; } 
+        public List<TestClassModel> Classes { get; private set; }
         #endregion
 
 
@@ -67,6 +76,7 @@ namespace devplex.Tools.Model
         public BaseTestFramework()
         {
             Classes = new List<TestClassModel>();
+            References = new List<string>();
             RequiredUsings = new List<string>();
             RequiredClassAttributes = new List<string>();
             RequiredMethodAttributes = new List<string>();
@@ -108,7 +118,7 @@ namespace devplex.Tools.Model
 
             return testClass;
 
-        } 
+        }
         #endregion
 
         #region CreateTestModel(string name)
@@ -146,7 +156,7 @@ namespace devplex.Tools.Model
 
             return test;
 
-        } 
+        }
         #endregion
 
     }

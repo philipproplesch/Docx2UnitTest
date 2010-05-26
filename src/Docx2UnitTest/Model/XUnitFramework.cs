@@ -1,4 +1,6 @@
-﻿namespace devplex.Tools.Model
+﻿using System.IO;
+
+namespace devplex.Tools.Model
 {
     /// <summary>
     /// Implementation of the test framework from XUnit.
@@ -11,9 +13,10 @@
         /// </summary>
         public XUnitFramework()
         {
+            References.Add(Path.Combine("xUnit.net", "xunit.dll"));
+
             RequiredUsings.Add("using System;");
             RequiredUsings.Add("using Xunit;");
-
 
             RequiredMethodAttributes.Add("[Fact]");
         }
