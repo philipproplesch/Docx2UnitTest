@@ -101,7 +101,7 @@ namespace devplex.Tools
         /// <returns></returns>
         private static XmlDocument ExtractXmlFromWordDocument(string filePath)
         {
-            using (var package = Package.Open(filePath, FileMode.Open))
+            using (var package = Package.Open(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 var packagePart =
                     package.GetPart(
